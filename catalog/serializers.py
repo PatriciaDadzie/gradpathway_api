@@ -7,4 +7,9 @@ class UniversitySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class ProgrammeSerializer(serializers.ModelSerializer):
+    university = UniversitySerializer(read_only=True)
 
+    class Meta:
+        model = Programme
+        fields = "__all__"
