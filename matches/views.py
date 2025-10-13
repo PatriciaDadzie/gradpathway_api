@@ -15,4 +15,4 @@ class MatchRequestListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         match_request = serializer.save(user=self.request.user)
-        generate_matches(match_request)
+        generate_matches(match_request) 

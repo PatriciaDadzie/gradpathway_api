@@ -22,6 +22,12 @@ urlpatterns = [
     path("api/auth/", include("accounts.urls")),
     path("api/auth/", include("accounts.urls")),
     path("api/catalog/", include("catalog.urls")),
+    path("api/transcripts/", include("transcripts.urls")),
+    path("api/matches/", include("matches.urls")),
+    path("api/favourites/", include("favourites.urls")),
+    
+
+
 
 
 ]
