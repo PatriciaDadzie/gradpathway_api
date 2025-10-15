@@ -72,7 +72,7 @@ It allows users to upload their academic transcript or GPA and receive tailored 
 1. A new user registers and logs in to obtain a token.  
 2. The user browses available universities and programmes.  
 3. The user can:
-   - Upload a transcript (coming in Week 3 implementation).
+   - Upload a transcript.
    - Add favourites for quick access later.  
 4. The system provides programme details including tuition, duration, and GPA requirements.  
 5. Admins can seed U.S. university data via the College Scorecard API.
