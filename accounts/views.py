@@ -2,14 +2,14 @@ from django.contrib.auth import authenticate
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
-from rest_framework import status
+from rest_framework import status, permissions
 from drf_yasg.utils import swagger_auto_schema
-from drf_yasg import openapi
-
 from .serializers import RegisterSerializer, LoginSerializer
 
 
 class RegisterView(APIView):
+    permission_classes = [permissions.AllowAny]
+
     @swagger_auto_schema(
         request_body=RegisterSerializer,
         responses={201: "User registered successfully", 400: "Invalid data"}
@@ -32,6 +32,8 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
+    permission_classes = [permissions.AllowAny]
+
     @swagger_auto_schema(
         request_body=LoginSerializer,
         responses={200: "Login successful", 400: "Invalid credentials"}
