@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from django.contrib.auth import authenticate
-from .models import User
+from django.contrib.auth import get_user_model, authenticate
 
+User = get_user_model()
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -18,8 +18,13 @@ class RegisterSerializer(serializers.ModelSerializer):
             username=validated_data["username"],
             email=validated_data["email"],
             password=validated_data["password"],
-            country_preference=validated_data.get("country_preference", "")
         )
+
+        # Handle country_preference separately since Django's default create_user() ignores extra fields
+        if "country_preference" in validated_data:
+            user.country_preference = validated_data["country_preference"]
+            user.save()
+
         return user
 
 
